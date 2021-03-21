@@ -1,6 +1,6 @@
 ---
 title: "lab-07-simpsons.Rmd"
-author: "Musab Isah "
+author: salma ali   2201002881
 date: "17 March 2021"
 output: pdf_document
 ---
@@ -22,51 +22,61 @@ library(mosaicData)
 
 1.  
 ```{r whickam}
-
+?Whickham
 ```
     
 Your answer:
+observational , Because they notice a person's health state after a period of time
 
 2.  
 ```{r observations}
-
+nrow(Whickham)
 ```
 
 Your answer;
+obs 1314  
+Each row represents whether the person is alive or dead, is he a smoker or not, and how old he is
 
 3.  
 
 ```{r number_variables}
-
+names(Whickham)
 ```
 
 Your answer:  
+3 var , "outcome" "smoker"  "age"
 
 ```{r var_type}
-
+unique(Whickham$outcome)
+unique(Whickham$smoker)
+unique(Whickham$age)
 ```
 
-Your answer: 
+Your answer:
+Using the " unique() " function on the 3 vairables we could see that  "outcome" only takes Alive or Dead value, which makes it categorical non-ordinal. "smoker" only takes Yes or No, which also makes it categorical non-ordinal. Age is numerical continous data
 
 ```{r plot_outcome}
-
+ ggplot(Whickham, aes(x = outcome)) +  geom_bar()
 ```
 
 
 ```{r plot_smoker}
-
+ggplot(Whickham, aes(x = smoker)) +
+  geom_bar()
 ```
 
 ```{r plot_age}
-
+ggplot(Whickham, aes(x = age)) +
+  geom_bar()
 ```
 
 
 4. 
 
 ```{r plot_smokeVSincome_1}
-
+ggplot(data=Whickham, aes(x=smoker, y=outcome, color=outcome)) + geom_bar(stat="identity")
 ```
+smokers die if they continue to smoke
 
 Knit, commit, and push to github.
 
